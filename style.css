@@ -64,7 +64,7 @@ main {
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    height: 500px;
+    height: 700px;
 }
 
 .tab-content.active {
@@ -89,7 +89,7 @@ main {
     display: flex;
     flex-direction: column;
     transition: transform 0.2s;
-    max-height: 370px;
+    max-height: 300px;
 }
 
 .project-card:hover {
