@@ -78,6 +78,8 @@ main {
     justify-content: flex-start;
     align-items: stretch;
     padding-right: 8px; /* for scrollbar space */
+    overflow-y: auto;
+    max-height: 650px;
 }
 
 .project-card {
