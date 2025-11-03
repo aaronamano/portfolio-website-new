@@ -34,7 +34,7 @@ const projects = [
             "assets/icons/javascript-icon.svg",
             "assets/icons/tailwind-icon.svg",
             "assets/icons/flask-icon.svg",
-            "assets/icons/openai-icon.png"
+            "assets/icons/openai-icon.svg"
         ],
         link: "https://devpost.com/software/prioritizer-higher",
         category: "fullstack"
