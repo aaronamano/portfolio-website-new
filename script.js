@@ -119,5 +119,5 @@ function renderSocials() {
 }
 
 // Set the initial active tab and sub-tab
-setActiveTab('projects');
+setActiveTab('aboutme');
 setActiveSubTab('fullstack');

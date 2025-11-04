@@ -60,5 +60,18 @@ const projects = [
         ],
         link: "https://devpost.com/software/vibetuneai",
         category: "backend"
+    },
+    {
+        name: "MedScheduler",
+        description: "Fullstack dashboard for users to schedule medications and prescriptions they need to take",
+        image: "assets/images/medscheduler.png",
+        icons: [
+            "assets/icons/nextjs-icon.svg",
+            "assets/icons/typescript-icon.svg",
+            "assets/icons/tailwind-icon.svg",
+            "assets/icons/mongodb-icon.svg"
+        ],
+        link: "https://medscheduler-ashy.vercel.app",
+        category: "fullstack"
     }
 ];
