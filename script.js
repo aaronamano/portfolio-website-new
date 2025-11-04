@@ -58,22 +58,12 @@ tabButtons.forEach(button => {
     });
 });
 
-subTabButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const subTab = button.dataset.subtab;
-        setActiveSubTab(subTab);
-    });
-});
 
 function renderProjects() {
-    const fullstackGrid = document.querySelector('#fullstack .projects-grid');
-    const backendGrid = document.querySelector('#backend .projects-grid');
-    const lowLevelGrid = document.querySelector('#low-level .projects-grid');
+    const projectsGrid = document.querySelector('#projects .projects-grid');
 
     // Clear existing projects
-    fullstackGrid.innerHTML = '';
-    backendGrid.innerHTML = '';
-    lowLevelGrid.innerHTML = '';
+    projectsGrid.innerHTML = '';
 
     projects.forEach(project => {
         const projectCard = `
@@ -94,13 +84,7 @@ function renderProjects() {
                 </div>
             </a>
         `;
-        if (project.category === 'fullstack') {
-            fullstackGrid.innerHTML += projectCard;
-        } else if (project.category === 'backend') {
-            backendGrid.innerHTML += projectCard;
-        } else if (project.category === 'low-level') {
-            lowLevelGrid.innerHTML += projectCard;
-        }
+        projectsGrid.innerHTML += projectCard;
     });
 }
 

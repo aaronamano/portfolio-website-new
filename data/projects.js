@@ -1,4 +1,3 @@
-
 const projects = [
     {
         name: "EcoLLM",
@@ -9,8 +8,7 @@ const projects = [
             "assets/icons/typescript-icon.svg",
             "assets/icons/tailwind-icon.svg"
         ],
-        link: "https://devpost.com/software/ecollm",
-        category: "fullstack"
+        link: "https://devpost.com/software/ecollm"
     },
     {
         name: "Voluntere",
@@ -22,8 +20,7 @@ const projects = [
             "assets/icons/tailwind-icon.svg",
             "assets/icons/supabase-icon.svg"
         ],
-        link: "https://voluntere.vercel.app/",
-        category: "fullstack"
+        link: "https://devpost.com/software/map-for-good"
     },
     {
         name: "Prioritizer Higher",
@@ -36,8 +33,7 @@ const projects = [
             "assets/icons/flask-icon.svg",
             "assets/icons/openai-icon.svg"
         ],
-        link: "https://devpost.com/software/prioritizer-higher",
-        category: "fullstack"
+        link: "https://devpost.com/software/prioritizer-higher"
     },
     {
         name: "Quizlet Clone",
@@ -48,8 +44,7 @@ const projects = [
             "assets/icons/typescript-icon.svg",
             "assets/icons/tailwind-icon.svg"
         ],
-        link: "https://github.com/aaronamano/quizlet_clone",
-        category: "fullstack"
+        link: "https/github.com/aaronamano/quizlet_clone"
     },
     {
         name: "VibetuneMCP",
@@ -58,8 +53,7 @@ const projects = [
         icons: [
             "assets/icons/python-icon.svg"
         ],
-        link: "https://devpost.com/software/vibetuneai",
-        category: "backend"
+        link: "https://devpost.com/software/vibetuneai"
     },
     {
         name: "MedScheduler",
@@ -71,7 +65,6 @@ const projects = [
             "assets/icons/tailwind-icon.svg",
             "assets/icons/mongodb-icon.svg"
         ],
-        link: "https://medscheduler-ashy.vercel.app",
-        category: "fullstack"
+        link: "https://medscheduler-ashy.vercel.app"
     }
 ];
