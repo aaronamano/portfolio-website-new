@@ -1,48 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
     <!-- Add Font Awesome CDN below -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-</head>
+  </head>
 
-<body class="font-sans bg-white text-black leading-relaxed">
+  <body class="font-sans bg-gray-900 text-gray-100 leading-relaxed">
     <main class="max-w-4xl mx-auto my-8 px-4">
-        <div class="flex justify-center mb-8 bg-gray-100 rounded-lg shadow-md overflow-hidden">
-            <button class="tab-button flex-grow text-center py-5 px-8 text-lg font-bold text-gray-600 transition duration-300 ease-in-out hover:bg-gray-300" data-tab="aboutme">About Me</button>
-            <button class="tab-button flex-grow text-center py-5 px-8 text-lg font-bold text-gray-600 transition duration-300 ease-in-out hover:bg-gray-300" data-tab="projects">Projects</button>
-        </div>
-        <div class="tab-content hidden bg-white p-8 rounded-lg shadow-md h-[700px]" id="aboutme">
-            <div class="flex flex-col items-center justify-center">
-                <div class="flex flex-col items-center justify-center w-full gap-y-8">
-                    <div>
-                        <h1 class="text-3xl text-black text-center">hi i'm aaron</h1>
-                        <p class="text-center">cs @ umich dearborn</p>
-                    </div>
-                    <img src="assets/images/pfp.png" alt="my profile picture" class="w-64 h-64 object-cover rounded-full block mx-auto shadow-md" />
-                    <div class="text-center">
-                        <div class="gap-4 mb-6">
-                            <p>email: aaroncedric2005@yahoo.com</p>
-                            <p>phone: +1 (586) 522-7807</p>
-                        </div>
-                        <div class="flex justify-center gap-6 aboutme-icons">
-                        </div>
-                    </div>
-                </div>
+      <div
+        class="flex justify-center mb-8 bg-gray-800 rounded-lg shadow-lg overflow-hidden border border-gray-700"
+      >
+        <button
+          class="tab-button flex-grow text-center py-5 px-8 text-lg font-bold text-gray-300 transition duration-300 ease-in-out hover:bg-gray-700 hover:text-white"
+          data-tab="aboutme"
+        >
+          About Me
+        </button>
+        <button
+          class="tab-button flex-grow text-center py-5 px-8 text-lg font-bold text-gray-300 transition duration-300 ease-in-out hover:bg-gray-700 hover:text-white"
+          data-tab="experience"
+        >
+          Experience
+        </button>
+        <button
+          class="tab-button flex-grow text-center py-5 px-8 text-lg font-bold text-gray-300 transition duration-300 ease-in-out hover:bg-gray-700 hover:text-white"
+          data-tab="projects"
+        >
+          Projects
+        </button>
+      </div>
+      <div
+        class="tab-content hidden bg-gray-800 p-8 rounded-lg shadow-xl h-[700px] border border-gray-700"
+        id="aboutme"
+      >
+        <div class="flex flex-col items-center justify-center">
+          <div class="flex flex-col items-center justify-center w-full gap-y-8">
+            <div>
+              <h1 class="text-3xl text-white text-center">hi i'm aaron</h1>
+              <p class="text-center text-gray-300">cs @ umich dearborn</p>
             </div>
-        </div>
-        <div class="tab-content block bg-white p-8 rounded-lg shadow-md h-[700px]" id="projects">
-            <div class="projects-grid flex flex-wrap gap-8 justify-start items-stretch pr-2 overflow-y-auto max-h-[650px]">
+            <img
+              src="assets/images/pfp.png"
+              alt="my profile picture"
+              class="w-64 h-64 object-cover rounded-full block mx-auto shadow-md"
+            />
+            <div class="text-center">
+              <div class="gap-4 mb-6">
+                <p>email: aaroncedric2005@yahoo.com</p>
+                <p>phone: +1 (586) 522-7807</p>
+              </div>
+              <div class="flex justify-center gap-6 aboutme-icons"></div>
             </div>
+            <footer class="text-center text-gray-400 text-sm italic">
+              "The biggest mistake we make in life is thinking we have time." -
+              Kobe Bryant
+            </footer>
+          </div>
         </div>
+      </div>
+      <div
+        class="tab-content hidden bg-gray-800 p-8 rounded-lg shadow-xl h-[700px] border border-gray-700"
+        id="experience"
+      >
+        <div class="experience-container overflow-y-auto max-h-[650px]"></div>
+      </div>
+      <div
+        class="tab-content block bg-gray-800 p-8 rounded-lg shadow-xl h-[700px] border border-gray-700"
+        id="projects"
+      >
+        <div
+          class="projects-grid flex flex-wrap gap-8 justify-start items-stretch pr-2 overflow-y-auto max-h-[650px]"
+        ></div>
+      </div>
     </main>
+    <script src="data/experience.js"></script>
     <script src="data/projects.js"></script>
     <script src="data/socials.js"></script>
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
