@@ -10,27 +10,43 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      /* Custom utilities for iPhone-specific breakpoints not covered by Tailwind */
+      @media screen and (max-width: 414px) {
+        .tab-max-414\:py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+        .tab-max-414\:px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
+        .tab-max-414\:text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+        .tab-max-414\:whitespace-nowrap { white-space: nowrap; }
+      }
+      
+      @media screen and (max-width: 375px) {
+        .tab-max-375\:py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+        .tab-max-375\:px-1 { padding-left: 0.25rem; padding-right: 0.25rem; }
+        .tab-max-375\:text-xs { font-size: 0.75rem; }
+        .tab-max-375\:text-2xs { font-size: 0.625rem; padding: 0.125rem 0.375rem; }
+      }
+    </style>
   </head>
 
   <body class="font-sans bg-gray-900 text-gray-100 leading-relaxed">
     <main class="max-w-4xl mx-auto my-8 px-4">
       <div
-        class="flex justify-center mb-8 bg-gray-800 rounded-lg shadow-lg overflow-hidden border border-gray-700"
+        class="flex justify-center mb-8 bg-gray-800 rounded-lg shadow-lg overflow-hidden border border-gray-700 max-sm:gap-1"
       >
         <button
-          class="tab-button flex-grow text-center py-5 px-8 text-lg font-bold text-gray-300 transition duration-300 ease-in-out hover:bg-gray-700 hover:text-white"
+          class="tab-button flex-grow text-center py-5 px-8 text-lg font-bold text-gray-300 transition duration-300 ease-in-out hover:bg-gray-700 hover:text-white max-sm:py-4 max-sm:px-2 max-sm:text-sm max-sm:py-3 max-sm:px-1 max-sm:text-xs tab-max-414:py-4 tab-max-414:px-2 tab-max-414:text-sm tab-max-375:py-3 tab-max-375:px-1 tab-max-375:text-xs"
           data-tab="aboutme"
         >
           About Me
         </button>
         <button
-          class="tab-button flex-grow text-center py-5 px-8 text-lg font-bold text-gray-300 transition duration-300 ease-in-out hover:bg-gray-700 hover:text-white"
+          class="tab-button flex-grow text-center py-5 px-8 text-lg font-bold text-gray-300 transition duration-300 ease-in-out hover:bg-gray-700 hover:text-white max-sm:py-4 max-sm:px-2 max-sm:text-sm max-sm:py-3 max-sm:px-1 max-sm:text-xs tab-max-414:py-4 tab-max-414:px-2 tab-max-414:text-sm tab-max-375:py-3 tab-max-375:px-1 tab-max-375:text-xs"
           data-tab="experience"
         >
           Experience
         </button>
         <button
-          class="tab-button flex-grow text-center py-5 px-8 text-lg font-bold text-gray-300 transition duration-300 ease-in-out hover:bg-gray-700 hover:text-white"
+          class="tab-button flex-grow text-center py-5 px-8 text-lg font-bold text-gray-300 transition duration-300 ease-in-out hover:bg-gray-700 hover:text-white max-sm:py-4 max-sm:px-2 max-sm:text-sm max-sm:py-3 max-sm:px-1 max-sm:text-xs tab-max-414:py-4 tab-max-414:px-2 tab-max-414:text-sm tab-max-375:py-3 tab-max-375:px-1 tab-max-375:text-xs"
           data-tab="projects"
         >
           Projects

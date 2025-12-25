@@ -99,13 +99,15 @@ function renderExperience() {
     experience.forEach(item => {
         const experienceItem = `
             <div class="mb-8 pb-8 border-b border-gray-700 last:border-b-0">
-                <div class="flex justify-between items-start mb-3">
+                <div class="flex justify-between items-start mb-3 max-sm:flex-col max-sm:items-start max-sm:gap-2">
                     <div>
                         <h3 class="text-xl font-semibold text-white mb-1">${item.title}</h3>
                         <h4 class="text-lg text-gray-300 font-medium">${item.organization}</h4>
                         ${item.location ? `<p class="text-sm text-gray-400 mt-1"><i class="fas fa-map-marker-alt mr-1"></i>${item.location}</p>` : ''}
                     </div>
-                    <span class="text-sm text-gray-400 font-medium bg-gray-700 px-3 py-1 rounded-full">${item.dateRange}</span>
+                    <div class="max-sm:self-end">
+                        <span class="text-sm text-gray-400 font-medium bg-gray-700 px-3 py-1 rounded-full max-sm:text-xs max-sm:px-2 max-sm:py-1 max-sm:text-2xs tab-max-414:text-xs tab-max-414:px-2 tab-max-414:py-1 tab-max-414:whitespace-nowrap tab-max-375:text-2xs tab-max-375:px-1 tab-max-375:py-0">${item.dateRange}</span>
+                    </div>
                 </div>
                 <p class="text-gray-300 leading-relaxed">${item.description}</p>
             </div>
