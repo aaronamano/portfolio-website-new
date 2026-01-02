@@ -20,8 +20,8 @@ const experience = [
     organization: "Google Developer Groups",
     dateRange: "Sep 2025 — Oct 2025",
     location: "Detroit, MI",
-    description: `Collaborated with 8+ members to develop a website for Michigan Devfest 2025, bringing in 600+ attendees. 
-    Refactored existing sections and navigation tabs ensuring they're in the same order; developed a job board section with React, Tailwind, and Javascript,
-    which showcased opportunities from 6 different sponsors. Downsized logos to it's necessary size and optimized them helping save 90+% of image space.`
+    description: `Collaborated with 10+ members to make a website for Michigan Devfest 2025, bringing in 600+ attendees. 
+    Built a job board section with React, Tailwind, and Javascript, which showcased opportunities from 5 different sponsors. 
+    Downsized logos to its necessary size and optimized them to maintain its quality helping save roughly 90% of image space.`
   },
 ];

@@ -13,20 +13,6 @@ const projects = [
         link: "https://devpost.com/software/prioritizer-higher"
     },
     {
-        name: "Quizlet Clone",
-        description: "My own fullstack Quizlet clone being built using the PERN stack.",
-        image: "assets/images/quizletclone.png",
-        icons: [
-            "assets/icons/postgres-icon.svg",
-            "assets/icons/express-icon.svg",
-            "assets/icons/react-icon.svg",
-            "assets/icons/nodejs-icon.svg",
-            "assets/icons/typescript-icon.svg",
-            "assets/icons/tailwind-icon.svg"
-        ],
-        link: "https://github.com/aaronamano/quizlet_clone"
-    },
-    {
         name: "VibetuneMCP",
         description: "MCP Server that helps generate media recommentations from user taste preferences and convert them to Spotify playlists",
         image: "assets/images/vibetunemcp.png",
@@ -43,7 +29,6 @@ const projects = [
             "assets/icons/nextjs-icon.svg",
             "assets/icons/typescript-icon.svg",
             "assets/icons/mongodb-icon.svg",
-            "assets/icons/openai-icon.svg",
             "assets/icons/perplexity-icon.svg"
 
         ],
@@ -51,7 +36,7 @@ const projects = [
     },
     {
         name: "MoodBank",
-        description: "A financial dashboard where users can rate how they feel about each purchase/transaction they had on a scale from 1-10.",
+        description: "Financial dashboard where users can rate how they feel about each purchase/transaction they had on a scale from 1-10.",
         image: "assets/images/moodbank.png",
         icons: [
             "assets/icons/nextjs-icon.svg",
@@ -62,6 +47,5 @@ const projects = [
             "assets/icons/google-gemini-icon.svg"
         ],
         link: "https://devpost.com/software/moodbank-g93pmn"
-        
     }
 ];
