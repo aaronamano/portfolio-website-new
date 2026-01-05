@@ -7,7 +7,7 @@ const projects = [
     },
     {
         name: "VibetuneMCP",
-        description: "MCP Server that helps generate media recommentations from user taste preferences and convert them to Spotify playlists",
+        description: "MCP Server that helps recommend media from user taste preferences and convert them to Spotify playlists",
         image: "assets/images/vibetunemcp.png",
         link: "https://devpost.com/software/vibetuneai"
     },
