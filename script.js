@@ -110,11 +110,11 @@ function renderProjects() {
     projects.forEach(project => {
         const projectCard = `
             <a href="${project.link}" class="text-decoration-none">
-                <div class="bg-tertiary rounded-xl shadow-xl overflow-hidden w-[290px] flex flex-col transition duration-200 max-h-[300px] hover:translate-y-[-6px] hover:scale-105 hover:shadow-2xl border border-custom">
+                <div class="bg-tertiary rounded-xl shadow-xl overflow-hidden w-[290px] flex flex-col transition duration-200 h-[300px] hover:translate-y-[-6px] hover:scale-105 hover:shadow-2xl border border-custom">
                     <div class="relative">
                         <img src="${project.image}" alt="" class="w-full h-36 object-cover bg-secondary block" />
                     </div>
-                    <div class="p-5 flex-1 flex flex-col overflow-y-auto max-h-44">
+                    <div class="p-5 flex-1 flex flex-col overflow-y-auto">
                         <h3 class="mt-0 mb-3 text-primary text-xl">${project.name}</h3>
                         <p class="text-secondary text-base m-0 flex-1">
                             ${project.description}
