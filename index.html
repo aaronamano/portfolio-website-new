@@ -11,6 +11,67 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
+      :root {
+        --bg-primary: 17, 24, 39;
+        --bg-secondary: 31, 41, 55;
+        --bg-tertiary: 55, 65, 81;
+        --text-primary: 243, 244, 246;
+        --text-secondary: 209, 213, 219;
+        --text-tertiary: 156, 163, 175;
+        --border-color: 75, 85, 99;
+      }
+
+      [data-theme="light"] {
+        --bg-primary: 255, 255, 255;
+        --bg-secondary: 249, 250, 251;
+        --bg-tertiary: 243, 244, 246;
+        --text-primary: 17, 24, 39;
+        --text-secondary: 55, 65, 81;
+        --text-tertiary: 107, 114, 128;
+        --border-color: 209, 213, 219;
+      }
+
+      body {
+        background-color: rgb(var(--bg-primary));
+        color: rgb(var(--text-primary));
+      }
+
+      .bg-primary { background-color: rgb(var(--bg-primary)); }
+      .bg-secondary { background-color: rgb(var(--bg-secondary)); }
+      .bg-tertiary { background-color: rgb(var(--bg-tertiary)); }
+      .text-primary { color: rgb(var(--text-primary)); }
+      .text-secondary { color: rgb(var(--text-secondary)); }
+      .text-tertiary { color: rgb(var(--text-tertiary)); }
+      .border-custom { border-color: rgb(var(--border-color)); }
+
+      .hover-bg-secondary:hover { background-color: rgb(var(--bg-secondary)); }
+      .hover-text-secondary:hover { color: rgb(var(--text-secondary)); }
+
+      /* Theme toggle button */
+      .theme-toggle {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        z-index: 1000;
+        background: rgb(var(--bg-secondary));
+        border: 1px solid rgb(var(--border-color));
+        color: rgb(var(--text-primary));
+        padding: 0.5rem;
+        border-radius: 50%;
+        width: 3rem;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .theme-toggle:hover {
+        background: rgb(var(--bg-tertiary));
+        transform: scale(1.1);
+      }
+
       /* Custom utilities for iPhone-specific breakpoints not covered by Tailwind */
       @media screen and (max-width: 414px) {
         .tab-max-414\:py-4 { padding-top: 1rem; padding-bottom: 1rem; }
@@ -28,39 +89,42 @@
     </style>
   </head>
 
-  <body class="font-sans bg-gray-900 text-gray-100 leading-relaxed">
+  <body class="font-sans leading-relaxed">
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <i class="fas fa-moon" id="theme-icon"></i>
+    </button>
     <main class="max-w-4xl mx-auto my-8 px-4">
       <div
-        class="flex justify-center mb-8 bg-gray-800 rounded-lg shadow-lg overflow-hidden border border-gray-700 max-sm:gap-1"
+        class="flex justify-center mb-8 bg-secondary rounded-lg shadow-lg overflow-hidden border border-custom max-sm:gap-1"
       >
         <button
-          class="tab-button flex-grow text-center py-5 px-8 text-lg font-bold text-gray-300 transition duration-300 ease-in-out hover:bg-gray-700 hover:text-white max-sm:py-4 max-sm:px-2 max-sm:text-sm max-sm:py-3 max-sm:px-1 max-sm:text-xs tab-max-414:py-4 tab-max-414:px-2 tab-max-414:text-sm tab-max-375:py-3 tab-max-375:px-1 tab-max-375:text-xs"
+          class="tab-button flex-grow text-center py-5 px-8 text-lg font-bold text-secondary transition duration-300 ease-in-out hover-bg-secondary hover:text-primary max-sm:py-4 max-sm:px-2 max-sm:text-sm max-sm:py-3 max-sm:px-1 max-sm:text-xs tab-max-414:py-4 tab-max-414:px-2 tab-max-414:text-sm tab-max-375:py-3 tab-max-375:px-1 tab-max-375:text-xs"
           data-tab="aboutme"
         >
           About Me
         </button>
         <button
-          class="tab-button flex-grow text-center py-5 px-8 text-lg font-bold text-gray-300 transition duration-300 ease-in-out hover:bg-gray-700 hover:text-white max-sm:py-4 max-sm:px-2 max-sm:text-sm max-sm:py-3 max-sm:px-1 max-sm:text-xs tab-max-414:py-4 tab-max-414:px-2 tab-max-414:text-sm tab-max-375:py-3 tab-max-375:px-1 tab-max-375:text-xs"
+          class="tab-button flex-grow text-center py-5 px-8 text-lg font-bold text-secondary transition duration-300 ease-in-out hover-bg-secondary hover:text-primary max-sm:py-4 max-sm:px-2 max-sm:text-sm max-sm:py-3 max-sm:px-1 max-sm:text-xs tab-max-414:py-4 tab-max-414:px-2 tab-max-414:text-sm tab-max-375:py-3 tab-max-375:px-1 tab-max-375:text-xs"
           data-tab="experience"
         >
           Experience
         </button>
         <button
-          class="tab-button flex-grow text-center py-5 px-8 text-lg font-bold text-gray-300 transition duration-300 ease-in-out hover:bg-gray-700 hover:text-white max-sm:py-4 max-sm:px-2 max-sm:text-sm max-sm:py-3 max-sm:px-1 max-sm:text-xs tab-max-414:py-4 tab-max-414:px-2 tab-max-414:text-sm tab-max-375:py-3 tab-max-375:px-1 tab-max-375:text-xs"
+          class="tab-button flex-grow text-center py-5 px-8 text-lg font-bold text-secondary transition duration-300 ease-in-out hover-bg-secondary hover:text-primary max-sm:py-4 max-sm:px-2 max-sm:text-sm max-sm:py-3 max-sm:px-1 max-sm:text-xs tab-max-414:py-4 tab-max-414:px-2 tab-max-414:text-sm tab-max-375:py-3 tab-max-375:px-1 tab-max-375:text-xs"
           data-tab="projects"
         >
           Projects
         </button>
       </div>
       <div
-        class="tab-content hidden bg-gray-800 p-8 rounded-lg shadow-xl h-[700px] border border-gray-700"
+        class="tab-content hidden bg-secondary p-8 rounded-lg shadow-xl h-[700px] border border-custom"
         id="aboutme"
       >
         <div class="flex flex-col items-center justify-center">
           <div class="flex flex-col items-center justify-center w-full gap-y-8">
             <div>
-              <h1 class="text-3xl text-white text-center">hi i'm aaron</h1>
-              <p class="text-center text-gray-300">cs @ umich dearborn</p>
+              <h1 class="text-3xl text-primary text-center">hi i'm aaron</h1>
+              <p class="text-center text-secondary">cs @ umich dearborn</p>
             </div>
             <img
               src="assets/images/pfp.png"
@@ -69,12 +133,12 @@
             />
             <div class="text-center">
               <div class="gap-4 mb-6">
-                <p>email: aaroncedric2005@yahoo.com</p>
-                <p>phone: +1 (586) 522-7807</p>
+                <p class="text-secondary">email: aaroncedric2005@yahoo.com</p>
+                <p class="text-secondary">phone: +1 (586) 522-7807</p>
               </div>
               <div class="flex justify-center gap-6 aboutme-icons"></div>
             </div>
-            <footer class="text-center text-gray-400 text-sm italic">
+            <footer class="text-center text-tertiary text-sm italic">
               "Choose your battles wisely. 
               After all, life isn't measured by how many times you stood up to fight. 
               It's not winning battles that makes you happy, but it's how many times you turned away and chose to look into a better direction." 
@@ -84,13 +148,13 @@
         </div>
       </div>
       <div
-        class="tab-content hidden bg-gray-800 p-8 rounded-lg shadow-xl h-[700px] border border-gray-700"
+        class="tab-content hidden bg-secondary p-8 rounded-lg shadow-xl h-[700px] border border-custom"
         id="experience"
       >
         <div class="experience-container overflow-y-auto max-h-[650px]"></div>
       </div>
       <div
-        class="tab-content block bg-gray-800 p-8 rounded-lg shadow-xl h-[700px] border border-gray-700"
+        class="tab-content block bg-secondary p-8 rounded-lg shadow-xl h-[700px] border border-custom"
         id="projects"
       >
         <div
