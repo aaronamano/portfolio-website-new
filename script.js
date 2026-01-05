@@ -113,9 +113,6 @@ function renderProjects() {
                 <div class="bg-tertiary rounded-xl shadow-xl overflow-hidden w-[290px] flex flex-col transition duration-200 max-h-[300px] hover:translate-y-[-6px] hover:scale-105 hover:shadow-2xl border border-custom">
                     <div class="relative">
                         <img src="${project.image}" alt="" class="w-full h-36 object-cover bg-secondary block" />
-                        <div class="absolute bottom-2 right-2 flex gap-2">
-                            ${project.icons.map(icon => `<img src="${icon}" alt="" class="w-6 h-6 bg-secondary rounded p-0.5 border border-custom" />`).join('')}
-                        </div>
                     </div>
                     <div class="p-5 flex-1 flex flex-col overflow-y-auto max-h-44">
                         <h3 class="mt-0 mb-3 text-primary text-xl">${project.name}</h3>
