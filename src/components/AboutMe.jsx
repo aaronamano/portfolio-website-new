@@ -9,13 +9,13 @@ export default function AboutMe() {
                     <p className="text-center text-secondary">cs @ umich dearborn</p>
                 </div>
                 <img
-                    src="assets/images/pfp.png"
+                    src="src/assets/profile/pfp.png"
                     alt="my profile picture"
                     className="w-64 h-64 object-cover rounded-full block mx-auto shadow-md"
                 />
                 <div className="text-center">
                     <div className="gap-4 mb-6">
-                        <p className="text-secondary">email: aaroncedric2005@yahoo.com</p>
+                        <p className="text-secondary">email: amanoac [at] umich [dot] edu</p>
                         <p className="text-secondary">phone: +1 (586) 522-7807</p>
                     </div>
                     <div className="flex justify-center gap-6 aboutme-icons">

@@ -1,8 +1,15 @@
 export const experience = [
   {
-    title: "Freelance Developer",
+    title: "Software Developer",
+    organization: "Hack Dearborn",
+    dateRange: "May 2026 — Present",
+    location: "Dearborn, MI",
+    description: `Currently co-leading a team of developers to build the website and registration app for Hack Dearborn 5`
+  },
+  {
+    title: "Software Developer",
     organization: "Filipino Americans in Tech",
-    dateRange: "Dec 2025",
+    dateRange: "Dec 2025 — Present",
     location: "Remote",
     description: `Developed 2 Discord bots with Python and BeautifulSoup for their server, 
     which posts current events from 2 different sources, notifying 270+ members in the loop.`
@@ -16,7 +23,7 @@ export const experience = [
       `Currently a technical lead for a 300+ member group, where I create and host workshops as well as conduct Neetcode sessions.`
   },
   {
-    title: "Frontend Developer",
+    title: "Web Developer",
     organization: "Google Developer Groups",
     dateRange: "Sep 2025 — Oct 2025",
     location: "Detroit, MI",

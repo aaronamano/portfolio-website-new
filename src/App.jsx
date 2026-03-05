@@ -3,11 +3,13 @@ import ThemeToggle from './components/ThemeToggle';
 import AboutMe from './components/AboutMe';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
+import TravelMap from './components/TravelMap';
 
 const TABS = {
   ABOUTME: 'aboutme',
   EXPERIENCE: 'experience',
-  PROJECTS: 'projects'
+  PROJECTS: 'projects',
+  TRAVEL: 'travel'
 };
 
 function App() {
@@ -16,7 +18,8 @@ function App() {
   const tabs = [
     { id: TABS.ABOUTME, label: 'About Me' },
     { id: TABS.EXPERIENCE, label: 'Experience' },
-    { id: TABS.PROJECTS, label: 'Projects' }
+    { id: TABS.PROJECTS, label: 'Projects' },
+    { id: TABS.TRAVEL, label: 'Travel' }
   ];
 
   const renderContent = () => {
@@ -27,6 +30,8 @@ function App() {
         return <Experience />;
       case TABS.PROJECTS:
         return <Projects />;
+      case TABS.TRAVEL:
+        return <TravelMap />;
       default:
         return <AboutMe />;
     }
@@ -49,7 +54,7 @@ function App() {
             </button>
           ))}
         </div>
-        <div className="bg-secondary p-8 rounded-lg shadow-xl h-[700px] border border-custom">
+        <div className="bg-secondary p-8 rounded-lg shadow-xl h-[800px] border border-custom">
           {renderContent()}
         </div>
       </main>
