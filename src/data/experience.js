@@ -1,4 +1,4 @@
-const experience = [
+export const experience = [
   {
     title: "Freelance Developer",
     organization: "Filipino Americans in Tech",

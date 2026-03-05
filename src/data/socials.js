@@ -1,4 +1,4 @@
-const socials = [
+export const socials = [
     {
         name: "GitHub",
         url: "https://github.com/aaronamano",
