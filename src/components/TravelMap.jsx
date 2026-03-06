@@ -4,129 +4,7 @@ import L from 'leaflet';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'leaflet/dist/leaflet.css';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-
-const VACATIONS_2024_ALASKA = 'assets/vacations/2024/alaska/';
-const VACATIONS_2024_LAS_VEGAS = 'assets/vacations/2024/las vegas/';
-const VACATIONS_2024_MANISTEE = 'assets/vacations/2024/manistee/';
-const VACATIONS_2024_ORLANDO = 'assets/vacations/2024/orlando/';
-const VACATIONS_2024_TORONTO = 'assets/vacations/2024/toronto/';
-
-const locations = [
-  {
-    id: 'alaska',
-    name: 'Alaska',
-    year: '2024',
-    position: [64.2008, -149.4937],
-    photos: [
-      VACATIONS_2024_ALASKA + 'IMG_9411.JPG',
-      VACATIONS_2024_ALASKA + 'IMG_9409.JPG',
-      VACATIONS_2024_ALASKA + 'IMG_9262.JPG',
-      VACATIONS_2024_ALASKA + 'IMG_9255.JPG',
-      VACATIONS_2024_ALASKA + 'IMG_9247.JPG',
-      VACATIONS_2024_ALASKA + 'IMG_9143.JPG',
-      VACATIONS_2024_ALASKA + 'IMG_9142.JPG',
-      VACATIONS_2024_ALASKA + 'IMG_9129.JPG',
-      VACATIONS_2024_ALASKA + 'IMG_9085.JPG',
-      VACATIONS_2024_ALASKA + 'IMG_9084.JPG',
-      VACATIONS_2024_ALASKA + 'IMG_9080.JPG',
-      VACATIONS_2024_ALASKA + 'IMG_9079.JPG',
-      VACATIONS_2024_ALASKA + 'IMG_9077.JPG',
-      VACATIONS_2024_ALASKA + 'IMG_9074.JPG',
-      VACATIONS_2024_ALASKA + 'IMG_9073.JPG',
-      VACATIONS_2024_ALASKA + 'IMG_9067.JPG',
-      VACATIONS_2024_ALASKA + 'IMG_9066.JPG',
-      VACATIONS_2024_ALASKA + 'IMG_9065.JPG',
-      VACATIONS_2024_ALASKA + 'IMG_9062.JPG',
-    ],
-  },
-  {
-    id: 'las-vegas',
-    name: 'Las Vegas',
-    year: '2024',
-    position: [36.1699, -115.1398],
-    photos: [
-      VACATIONS_2024_LAS_VEGAS + '20240826_093032.jpg',
-      VACATIONS_2024_LAS_VEGAS + '20240826_092750.jpg',
-      VACATIONS_2024_LAS_VEGAS + '20240826_091652.jpg',
-      VACATIONS_2024_LAS_VEGAS + '20240825_233504.jpg',
-      VACATIONS_2024_LAS_VEGAS + '20240825_225455.jpg',
-      VACATIONS_2024_LAS_VEGAS + '20240825_225453.jpg',
-      VACATIONS_2024_LAS_VEGAS + '20240825_223704.jpg',
-      VACATIONS_2024_LAS_VEGAS + '20240825_223314.jpg',
-      VACATIONS_2024_LAS_VEGAS + '20240825_223200.jpg',
-      VACATIONS_2024_LAS_VEGAS + '20240825_012640.jpg',
-      VACATIONS_2024_LAS_VEGAS + '20240825_012532.jpg',
-    ],
-  },
-  {
-    id: 'manistee',
-    name: 'Manistee',
-    year: '2024',
-    position: [44.2444, -86.3240],
-    photos: [
-      VACATIONS_2024_MANISTEE + 'IMG_9493.JPG',
-      VACATIONS_2024_MANISTEE + 'IMG_9490.JPG',
-      VACATIONS_2024_MANISTEE + 'IMG_9483.JPG',
-      VACATIONS_2024_MANISTEE + 'IMG_9482.JPG',
-      VACATIONS_2024_MANISTEE + 'IMG_9481.JPG',
-      VACATIONS_2024_MANISTEE + 'IMG_9480.JPG',
-      VACATIONS_2024_MANISTEE + 'IMG_9479.JPG',
-      VACATIONS_2024_MANISTEE + 'IMG_9476.JPG',
-      VACATIONS_2024_MANISTEE + 'IMG_9433.JPG',
-    ],
-  },
-  {
-    id: 'orlando',
-    name: 'Orlando',
-    year: '2024',
-    position: [28.5383, -81.3792],
-    photos: [
-      VACATIONS_2024_ORLANDO + 'IMG_8766.JPG',
-      VACATIONS_2024_ORLANDO + 'IMG_8763.JPG',
-      VACATIONS_2024_ORLANDO + 'IMG_8762.JPG',
-      VACATIONS_2024_ORLANDO + 'IMG_8761.JPG',
-      VACATIONS_2024_ORLANDO + 'IMG_8759.JPG',
-      VACATIONS_2024_ORLANDO + 'IMG_8755.JPG',
-      VACATIONS_2024_ORLANDO + 'IMG_8750.JPG',
-      VACATIONS_2024_ORLANDO + 'IMG_8734.JPG',
-      VACATIONS_2024_ORLANDO + 'IMG_8733.JPG',
-      VACATIONS_2024_ORLANDO + 'IMG_8732.JPG',
-      VACATIONS_2024_ORLANDO + 'IMG_8731.JPG',
-      VACATIONS_2024_ORLANDO + 'IMG_8725.JPG',
-      VACATIONS_2024_ORLANDO + 'IMG_8717.JPG',
-      VACATIONS_2024_ORLANDO + 'IMG_8708.JPG',
-      VACATIONS_2024_ORLANDO + 'IMG_8707.JPG',
-      VACATIONS_2024_ORLANDO + 'IMG_8706.JPG',
-      VACATIONS_2024_ORLANDO + 'IMG_8705.JPG',
-    ],
-  },
-  {
-    id: 'toronto',
-    name: 'Toronto',
-    year: '2024',
-    position: [43.6532, -79.3832],
-    photos: [
-      VACATIONS_2024_TORONTO + 'IMG_9744.JPG',
-      VACATIONS_2024_TORONTO + 'IMG_9730.JPG',
-      VACATIONS_2024_TORONTO + 'IMG_9729.JPG',
-      VACATIONS_2024_TORONTO + 'IMG_9728.JPG',
-      VACATIONS_2024_TORONTO + 'IMG_9726.JPG',
-      VACATIONS_2024_TORONTO + 'IMG_9724.JPG',
-      VACATIONS_2024_TORONTO + 'IMG_9707.JPG',
-      VACATIONS_2024_TORONTO + 'IMG_9704.JPG',
-      VACATIONS_2024_TORONTO + 'IMG_9703.JPG',
-      VACATIONS_2024_TORONTO + 'IMG_9692.JPG',
-      VACATIONS_2024_TORONTO + 'IMG_9690.JPG',
-      VACATIONS_2024_TORONTO + 'IMG_9689.JPG',
-      VACATIONS_2024_TORONTO + 'IMG_9688.JPG',
-      VACATIONS_2024_TORONTO + 'IMG_9671.JPG',
-      VACATIONS_2024_TORONTO + 'IMG_9670.JPG',
-      VACATIONS_2024_TORONTO + 'IMG_9669.JPG',
-      VACATIONS_2024_TORONTO + 'IMG_9668.JPG',
-      VACATIONS_2024_TORONTO + 'IMG_9663.JPG',
-    ],
-  },
-];
+import { travelLocations } from '../data/travelLocations';
 
 const defaultIcon = L.icon({
   iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
@@ -190,8 +68,8 @@ export default function TravelMap() {
 
   return (
     <div className="h-full flex flex-col">
-      <h2 className="text-2xl font-bold text-primary mb-4 text-center">Travel Map</h2>
-      <p className="text-primary/70 mb-4 text-center">Click on a marker to view photos from each location</p>
+      <h2 className="text-2xl font-bold text-primary mb-4 text-center">Travel Logs</h2>
+      <p className="text-primary/70 mb-4 text-center">Besides focusing on CS, I enjoy traveling a lot out of Michigan and explore new things. Click on a pinpoint to view my photo dump of a particular location.</p>
       
       <div className="flex-1 min-h-100 rounded-lg overflow-hidden border border-custom">
         <MapContainer 
@@ -204,7 +82,7 @@ export default function TravelMap() {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           <MapUpdater center={mapCenter} />
-          {locations.map((location) => (
+          {travelLocations.map((location) => (
             <Marker 
               key={location.id} 
               position={location.position}
