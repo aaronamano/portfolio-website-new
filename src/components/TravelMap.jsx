@@ -3,11 +3,11 @@ import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
-const VACATIONS_2024_ALASKA = 'src/assets/vacations/2024/alaska/';
-const VACATIONS_2024_LAS_VEGAS = 'src/assets/vacations/2024/las vegas/';
-const VACATIONS_2024_MANISTEE = 'src/assets/vacations/2024/manistee/';
-const VACATIONS_2024_ORLANDO = 'src/assets/vacations/2024/orlando/';
-const VACATIONS_2024_TORONTO = 'src/assets/vacations/2024/toronto/';
+const VACATIONS_2024_ALASKA = 'public/assets/vacations/2024/alaska/';
+const VACATIONS_2024_LAS_VEGAS = 'public/assets/vacations/2024/las vegas/';
+const VACATIONS_2024_MANISTEE = 'public/assets/vacations/2024/manistee/';
+const VACATIONS_2024_ORLANDO = 'public/assets/vacations/2024/orlando/';
+const VACATIONS_2024_TORONTO = 'public/assets/vacations/2024/toronto/';
 
 const locations = [
   {
