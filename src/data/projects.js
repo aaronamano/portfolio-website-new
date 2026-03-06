@@ -1,4 +1,4 @@
-const FILEPATH = "public/assets/projects/";
+const FILEPATH = "assets/projects/";
 
 export const projects = [
     {

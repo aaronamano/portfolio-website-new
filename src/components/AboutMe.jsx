@@ -9,7 +9,7 @@ export default function AboutMe() {
                     <p className="text-center text-secondary">cs @ umich dearborn</p>
                 </div>
                 <img
-                    src="public/assets/profile/pfp.png"
+                    src="assets/profile/pfp.png"
                     alt="my profile picture"
                     className="w-64 h-64 object-cover rounded-full block mx-auto shadow-md"
                 />
