@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'leaflet/dist/leaflet.css';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const VACATIONS_2024_ALASKA = 'assets/vacations/2024/alaska/';
 const VACATIONS_2024_LAS_VEGAS = 'assets/vacations/2024/las vegas/';
@@ -162,9 +164,10 @@ function Gallery({ location, onClose }) {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {location.photos.map((photo, index) => (
               <div key={index} className="aspect-square overflow-hidden rounded-lg">
-                <img 
+                <LazyLoadImage 
                   src={photo} 
                   alt={`${location.name} ${index + 1}`}
+                  effect="blur"
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-300 cursor-pointer"
                 />
               </div>
