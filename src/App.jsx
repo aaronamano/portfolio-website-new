@@ -18,11 +18,11 @@ function App() {
   const [activeTab, setActiveTab] = useState(TABS.ABOUTME);
 
   const tabs = [
-    { id: TABS.ABOUTME, label: 'About Me' },
-    { id: TABS.EXPERIENCE, label: 'Experience' },
-    { id: TABS.PROJECTS, label: 'Projects' },
-    { id: TABS.TRAVEL, label: 'Travel' },
-    { id: TABS.RESUME, label: 'Resume' }
+    { id: TABS.ABOUTME, label: 'me' },
+    { id: TABS.EXPERIENCE, label: 'xp' },
+    { id: TABS.PROJECTS, label: 'builds' },
+    { id: TABS.TRAVEL, label: 'side quests' },
+    { id: TABS.RESUME, label: 'resume' }
   ];
 
   const renderContent = () => {
@@ -59,7 +59,7 @@ function App() {
             </button>
           ))}
         </div>
-        <div className="bg-secondary p-4 rounded-lg shadow-xl h-[800px] border border-custom">
+        <div className="bg-secondary p-4 rounded-lg shadow-xl h-200 border border-custom">
           {renderContent()}
         </div>
       </main>
