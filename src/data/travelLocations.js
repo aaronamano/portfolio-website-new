@@ -1,17 +1,18 @@
-const VACATIONS_2024_ALASKA = 'assets/vacations/2024/alaska/';
-const VACATIONS_2024_ARIZONA = 'assets/vacations/2024/arizona/';
-const VACATIONS_2024_LAS_VEGAS = 'assets/vacations/2024/las vegas/';
-const VACATIONS_2024_MANISTEE = 'assets/vacations/2024/manistee/';
-const VACATIONS_2024_ORLANDO = 'assets/vacations/2024/orlando/';
-const VACATIONS_2024_TORONTO = 'assets/vacations/2024/toronto/';
+const BASE_URL = 'https://cdn.jsdelivr.net/gh/aaronamano/portfolio-travel-gallery@main/vacations/';
+const VACATIONS_2024_ALASKA = BASE_URL + '2024/alaska/';
+const VACATIONS_2024_ARIZONA = BASE_URL + '2024/arizona/';
+const VACATIONS_2024_LAS_VEGAS = BASE_URL + '2024/las vegas/';
+const VACATIONS_2024_MANISTEE = BASE_URL + '2024/manistee/';
+const VACATIONS_2024_ORLANDO = BASE_URL + '2024/orlando/';
+const VACATIONS_2024_TORONTO = BASE_URL + '2024/toronto/';
 
-const VACATIONS_2025_COCOCAY = 'assets/vacations/2025/cococay/';
-const VACATIONS_2025_MIAMI = 'assets/vacations/2025/miami/';
-const VACATIONS_2025_MINNESOTA = 'assets/vacations/2025/minnesota/';
-const VACATIONS_2025_NEW_YORK = 'assets/vacations/2025/new york/';
-const VACATIONS_2025_OHIO = 'assets/vacations/2025/ohio/';
+const VACATIONS_2025_COCOCAY = BASE_URL + '2025/cococay/';
+const VACATIONS_2025_MIAMI = BASE_URL + '2025/miami/';
+const VACATIONS_2025_MINNESOTA = BASE_URL + '2025/minnesota/';
+const VACATIONS_2025_NEW_YORK = BASE_URL + '2025/new york/';
+const VACATIONS_2025_OHIO = BASE_URL + '2025/ohio/';
 
-const VACATIONS_2026_CHICAGO = 'assets/vacations/2026/chicago/';
+const VACATIONS_2026_CHICAGO = BASE_URL + '2026/chicago/';
 
 export const travelLocations = [
   {
