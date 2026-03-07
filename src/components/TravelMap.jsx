@@ -56,17 +56,21 @@ function Gallery({ location, onClose }) {
           <button onClick={onClose} className="text-primary hover:text-tertiary text-2xl">&times;</button>
         </div>
         <div className="p-4 overflow-y-auto max-h-[calc(90vh-80px)]">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {location.photos.map((photo, index) => (
-              <div key={index} className="aspect-square overflow-hidden rounded-lg">
-                <LazyLoadImage 
-                  src={photo} 
-                  alt={`${location.name} ${index + 1}`}
-                  effect="blur"
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-300 cursor-pointer"
-                />
-              </div>
-            ))}
+          <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+            {location.photos.map((photo, index) => {
+              return (
+                <div key={index} className="break-inside-avoid mb-4">
+                  <div className="rounded-lg overflow-hidden">
+                    <LazyLoadImage 
+                      src={photo} 
+                      alt={`${location.name} ${index + 1}`}
+                      effect="blur"
+                      className="w-full h-auto hover:scale-105 transition-transform duration-300 cursor-pointer"
+                    />
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

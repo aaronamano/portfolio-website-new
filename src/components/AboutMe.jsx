@@ -30,10 +30,8 @@ export default function AboutMe() {
                     </div>
                 </div>
                 <footer className="text-center text-tertiary text-sm italic">
-                    "Choose your battles wisely. 
-                    After all, life isn't measured by how many times you stood up to fight. 
-                    It's not winning battles that makes you happy, but it's how many times you turned away and chose to look into a better direction." 
-                    - C. Joybell C.
+                    “You just keep your head down, you just keep working and working away. It’s just—you know, you just don’t give up. You keep going, you keep pushing.”  
+                    - Lewis Hamilton
                 </footer>
             </div>
         </div>
