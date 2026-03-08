@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import EXIF from 'exif-js';
 import 'leaflet/dist/leaflet.css';
-import 'react-lazy-load-image-component/src/effects/blur.css';
 import { travelLocations } from '../data/travelLocations';
 
 const createColoredIcon = (color) => L.icon({
@@ -35,6 +34,53 @@ const defaultIcon = L.icon({
 
 L.Marker.prototype.options.icon = defaultIcon;
 
+const getExifOrientation = (img) => {
+  return new Promise((resolve) => {
+    EXIF.getData(img, function() {
+      const orientation = EXIF.getTag(this, 'Orientation');
+      resolve(orientation || 1);
+    });
+  });
+};
+
+const getTransformStyle = (orientation) => {
+  switch (orientation) {
+    case 2: return 'scaleX(-1)';
+    case 3: return 'rotate(180deg)';
+    case 4: return 'scaleY(-1)';
+    case 5: return 'rotate(90deg) scaleX(-1)';
+    case 6: return 'rotate(90deg)';
+    case 7: return 'rotate(-90deg) scaleX(-1)';
+    case 8: return 'rotate(-90deg)';
+    default: return 'none';
+  }
+};
+
+function OrienterImage({ src, alt, className, ...props }) {
+  const [transform, setTransform] = useState('none');
+  const imgRef = useRef(null);
+
+  useEffect(() => {
+    const img = imgRef.current;
+    if (!img) return;
+    
+    getExifOrientation(img).then((orientation) => {
+      setTransform(getTransformStyle(orientation));
+    });
+  }, []);
+
+  return (
+    <img
+      ref={imgRef}
+      src={src}
+      alt={alt}
+      className={className}
+      style={{ transform, transformOrigin: 'center' }}
+      {...props}
+    />
+  );
+}
+
 function MapUpdater({ center }) {
   const map = useMap();
   useEffect(() => {
@@ -61,10 +107,10 @@ function Gallery({ location, onClose }) {
               return (
                 <div key={index} className="break-inside-avoid mb-4">
                   <div className="rounded-lg overflow-hidden">
-                    <LazyLoadImage 
+                    <OrienterImage 
                       src={photo} 
                       alt={`${location.name} ${index + 1}`}
-                      effect="blur"
+                      loading="lazy"
                       className="w-full h-auto hover:scale-105 transition-transform duration-300 cursor-pointer"
                     />
                   </div>
