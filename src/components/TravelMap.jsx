@@ -91,8 +91,16 @@ function MapUpdater({ center }) {
   return null;
 }
 
-function Gallery({ location, onClose }) {
+function Gallery({ location, onClose, onPhotoClick }) {
   if (!location) return null;
+
+  const getPhotoUrl = (photo) => {
+    return typeof photo === 'string' ? photo : photo.url;
+  };
+
+  const getCaption = (photo) => {
+    return typeof photo === 'object' ? photo.caption : '';
+  };
 
   return (
     <div className="fixed inset-0 bg-black/80 z-1000 flex items-center justify-center p-4" onClick={onClose}>
@@ -104,15 +112,23 @@ function Gallery({ location, onClose }) {
         <div className="p-4 overflow-y-auto max-h-[calc(90vh-80px)]">
           <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
             {location.photos.map((photo, index) => {
+              const photoUrl = getPhotoUrl(photo);
+              const caption = getCaption(photo);
               return (
-                <div key={index} className="break-inside-avoid mb-4">
+                <div key={index} className="break-inside-avoid mb-4 relative group">
                   <div className="rounded-lg overflow-hidden">
                     <OrienterImage 
-                      src={photo} 
+                      src={photoUrl} 
                       alt={`${location.name} ${index + 1}`}
                       loading="lazy"
-                      className="w-full h-auto hover:scale-105 transition-transform duration-300 cursor-pointer"
+                      className="w-full h-auto cursor-pointer"
+                      onClick={() => onPhotoClick(photo, index)}
                     />
+                    {caption && (
+                      <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-2 pointer-events-none">
+                        <p className="text-white text-center text-sm">{caption}</p>
+                      </div>
+                    )}
                   </div>
                 </div>
               );
@@ -124,13 +140,72 @@ function Gallery({ location, onClose }) {
   );
 }
 
+function PhotoModal({ photo, index, locationName, onClose, onPrev, onNext, hasPrev, hasNext, totalPhotos }) {
+  if (!photo) return null;
+
+  const photoUrl = typeof photo === 'string' ? photo : photo.url;
+  const caption = typeof photo === 'object' ? photo.caption : '';
+
+  return (
+    <div className="fixed inset-0 bg-black/95 z-1001 flex items-center justify-center p-2" onClick={onClose}>
+      <div className="relative w-full h-full flex flex-col items-center justify-center" onClick={(e) => e.stopPropagation()}>
+        <button onClick={onClose} className="absolute top-4 right-4 text-white text-3xl hover:text-gray-300 z-10">&times;</button>
+        
+        {hasPrev && (
+          <button onClick={(e) => { e.stopPropagation(); onPrev(); }} className="absolute left-4 top-1/2 -translate-y-1/2 text-white text-5xl hover:text-gray-300 p-4">&larr;</button>
+        )}
+        {hasNext && (
+          <button onClick={(e) => { e.stopPropagation(); onNext(); }} className="absolute right-4 top-1/2 -translate-y-1/2 text-white text-5xl hover:text-gray-300 p-4">&rarr;</button>
+        )}
+        
+        <img 
+          src={photoUrl} 
+          alt={`${locationName} ${index + 1}`}
+          className="max-w-full max-h-[70vh] object-contain"
+        />
+        
+        {caption && (
+          <p className="text-white text-center mt-4 text-lg">{caption}</p>
+        )}
+        <p className="text-gray-400 text-sm mt-2">{index + 1} / {totalPhotos}</p>
+      </div>
+    </div>
+  );
+}
+
 export default function TravelMap() {
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [mapCenter, setMapCenter] = useState(null);
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(null);
 
   const handleMarkerClick = (location) => {
     setSelectedLocation(location);
     setMapCenter(location.position);
+  };
+
+  const handlePhotoClick = (photo, index) => {
+    setSelectedPhoto(photo);
+    setSelectedPhotoIndex(index);
+  };
+
+  const handleClosePhoto = () => {
+    setSelectedPhoto(null);
+    setSelectedPhotoIndex(null);
+  };
+
+  const handlePrevPhoto = () => {
+    if (selectedPhotoIndex > 0 && selectedLocation) {
+      setSelectedPhotoIndex(selectedPhotoIndex - 1);
+      setSelectedPhoto(selectedLocation.photos[selectedPhotoIndex - 1]);
+    }
+  };
+
+  const handleNextPhoto = () => {
+    if (selectedLocation && selectedPhotoIndex < selectedLocation.photos.length - 1) {
+      setSelectedPhotoIndex(selectedPhotoIndex + 1);
+      setSelectedPhoto(selectedLocation.photos[selectedPhotoIndex + 1]);
+    }
   };
 
   return (
@@ -183,7 +258,25 @@ export default function TravelMap() {
       </div>
 
       {selectedLocation && (
-        <Gallery location={selectedLocation} onClose={() => setSelectedLocation(null)} />
+        <Gallery 
+          location={selectedLocation} 
+          onClose={() => setSelectedLocation(null)} 
+          onPhotoClick={handlePhotoClick}
+        />
+      )}
+
+      {selectedPhoto && (
+        <PhotoModal 
+          photo={selectedPhoto}
+          index={selectedPhotoIndex}
+          locationName={selectedLocation?.name}
+          onClose={handleClosePhoto}
+          onPrev={handlePrevPhoto}
+          onNext={handleNextPhoto}
+          hasPrev={selectedPhotoIndex > 0}
+          hasNext={selectedLocation && selectedPhotoIndex < selectedLocation.photos.length - 1}
+          totalPhotos={selectedLocation?.photos.length}
+        />
       )}
     </div>
   );
