@@ -140,7 +140,7 @@ function Gallery({ location, onClose, onPhotoClick }) {
   );
 }
 
-function PhotoModal({ photo, index, locationName, onClose, onPrev, onNext, hasPrev, hasNext, totalPhotos }) {
+function PhotoModal({ photo, index, locationName, onClose, onPrev, onNext, hasPrev, hasNext }) {
   if (!photo) return null;
 
   const photoUrl = typeof photo === 'string' ? photo : photo.url;
@@ -167,7 +167,7 @@ function PhotoModal({ photo, index, locationName, onClose, onPrev, onNext, hasPr
         {caption && (
           <p className="text-white text-center mt-4 text-lg">{caption}</p>
         )}
-        <p className="text-gray-400 text-sm mt-2">{index + 1} / {totalPhotos}</p>
+        <p className="text-gray-400 text-sm mt-2">{photoUrl}</p>
       </div>
     </div>
   );
