@@ -14,15 +14,15 @@ export const projects = [
         link: "https://studysynth.vercel.app"
     },
     {
-        name: "MoodBank",
-        description: "Financial dashboard where users can rate how they feel about each purchase/transaction they had on a scale from 1-10.",
-        image: FILEPATH + "moodbank.png",
-        link: "https://devpost.com/software/moodbank-g93pmn"
-    },
-    {
         name: "PolvoPlanner",
         description: "A business software dashboard for Tasty Polvo to manage orders",
         image: FILEPATH + "polvoplanner.png",
         link: "https://devpost.com/software/kapwa-codefest"
+    },
+    {
+        name: "SlidES",
+        description: "Dashboard to upload lecture slides as PDFs and use ElasticSearch’s built-in RAG agent to quickly search through uploaded slides, answering questions, responding with information that users need, or generating notes",
+        image: FILEPATH + "SlidES.png",
+        link: "https://devpost.com/software/slides-iecpgk"
     }
 ];
